@@ -36,7 +36,7 @@ setup(
     long_description=README,
 
     classifiers=[
-        'Development Status :: 1 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
