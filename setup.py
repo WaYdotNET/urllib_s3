@@ -1,6 +1,5 @@
 # coding: utf-8
 
-import os
 import sys
 
 from setuptools import find_packages, setup
@@ -9,7 +8,7 @@ with open("README.md") as f:
     long_description = f.read()
 
 NAME = "urllib_s3"
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 
 REQUIRES = [
     'setuptools >= 21.0.0',
