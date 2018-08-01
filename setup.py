@@ -5,14 +5,11 @@ import sys
 
 from setuptools import find_packages, setup
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
-    README = readme.read()
-
-# allow setup.py to be run from any path
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+with open("README.md") as f:
+    long_description = f.read()
 
 NAME = "urllib_s3"
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 REQUIRES = [
     'setuptools >= 21.0.0',
@@ -33,7 +30,7 @@ setup(
     package_dir={'': 'lib'},
     install_requires=REQUIRES,
     packages=find_packages('lib'),
-    long_description=README,
+    long_description=long_description,
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
