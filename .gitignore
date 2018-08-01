@@ -1,0 +1,11 @@
+__pycache__
+*.egg-info
+/test/output
+/dist
+/MANIFEST
+.coverage
+.cache
+/.idea
+.eggs
+build
+.pytest_cache/
