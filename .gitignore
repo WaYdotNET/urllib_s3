@@ -8,3 +8,4 @@ __pycache__
 /.idea
 .eggs
 build
+.pytest_cache/
