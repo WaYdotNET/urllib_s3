@@ -4,6 +4,9 @@ import sys
 
 from setuptools import find_packages, setup
 
+with open("README.md") as f:
+    long_description = f.read()
+
 NAME = "urllib_s3"
 VERSION = '0.0.3'
 
@@ -26,7 +29,7 @@ setup(
     package_dir={'': 'lib'},
     install_requires=REQUIRES,
     packages=find_packages('lib'),
-    long_description="urllib_s3 is a urllib handler for s3 protocol",
+    long_description=long_description,
 
     classifiers=[
         'Development Status :: 5 - Production/Stable',
