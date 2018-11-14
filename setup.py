@@ -8,12 +8,12 @@ with open("README.md") as f:
     long_description = f.read()
 
 NAME = "urllib_s3"
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 REQUIRES = [
     'setuptools >= 21.0.0',
     'six >= 1.9.0',
-    'minio >= 4.0.2'
+    'boto3 == 1.9.44'
 ]
 needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
 pytest_runner = ['pytest-runner'] if needs_pytest else []
@@ -25,7 +25,7 @@ setup(
     author_email="waydotnet@gmail.com",
     url='https://github.com/WaYdotNET/urllib_s3',
     license='MIT License',
-    keywords=["urllib", "s3", "urllib handler", 'minio'],
+    keywords=["urllib", "s3", "urllib handler", 'minio', "aws", "boto3"],
     package_dir={'': 'lib'},
     install_requires=REQUIRES,
     packages=find_packages('lib'),
