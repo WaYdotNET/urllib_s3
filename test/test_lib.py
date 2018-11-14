@@ -31,6 +31,6 @@ def test_get_resource(mocker):
             'secure': False,
         }
     }
-    mocker.patch('minio.Minio.get_object', return_value='foo')
+    mocker.patch('botocore.signers.generate_presigned_url', return_value='foo')
     urllib_s3.setup(d)
     assert urlopen('s3://fake/url.png') == 'foo'
