@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from minio import Minio
+import boto3
+from botocore.client import Config
 from six.moves.urllib.error import URLError
 from six.moves.urllib.request import BaseHandler, url2pathname
 
@@ -23,15 +24,21 @@ class UrllibS3Handler(BaseHandler):
                 's3://<server_name>/<bucket>/<object>'
             )
         try:
-            minio_server = self.settings[server_name]
+            credential = self.settings[server_name]
         except KeyError:
             raise ServerNameError('missing credential')
 
-        minioClient = Minio(
-            server_name,
-            access_key=minio_server['access_key'],
-            secret_key=minio_server['secret_key'],
-            secure=minio_server['secure']
+        s3 = boto3.client(
+            's3',
+            endpoint_url="https://{server}".format(server=server_name),
+            aws_access_key_id=credential['access_key'],
+            aws_secret_access_key=credential['secret_key'],
+            config=Config(signature_version='s3v4'),
+            region_name=credential.get('region_name', 'us-east-1')
         )
-
-        return minioClient.get_object(bucket_name, key_name)
+        url = s3.generate_presigned_url(
+            ClientMethod='get_object',
+            Params={'Bucket': bucket_name, 'Key': key_name},
+            ExpiresIn=3600
+        )
+        return url
