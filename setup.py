@@ -8,7 +8,7 @@ with open("README.md") as f:
     long_description = f.read()
 
 NAME = "urllib_s3"
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 
 REQUIRES = [
     'setuptools >= 21.0.0',
