@@ -2,12 +2,12 @@
 import boto3
 from botocore.client import Config
 from six.moves.urllib.error import URLError
-from six.moves.urllib.request import BaseHandler, url2pathname
+from six.moves.urllib.request import url2pathname, HTTPSHandler
 
 from .error import ServerNameError
 
 
-class UrllibS3Handler(BaseHandler):
+class UrllibS3Handler(HTTPSHandler):
     def __init__(self, settings):
         self.settings = settings
         super(UrllibS3Handler, self).__init__()
@@ -41,4 +41,5 @@ class UrllibS3Handler(BaseHandler):
             Params={'Bucket': bucket_name, 'Key': key_name},
             ExpiresIn=3600
         )
-        return url
+        req.full_url = url
+        return self.https_open(req)
