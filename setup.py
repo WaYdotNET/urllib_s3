@@ -8,11 +8,11 @@ with open("README.md") as f:
     long_description = f.read()
 
 NAME = "urllib_s3"
-VERSION = '0.0.5'
+VERSION = '0.0.6'
 
 REQUIRES = [
     'setuptools >= 21.0.0',
-    'six >= 1.12.0',
+    'six >= 1.9.0',
     'boto3 == 1.9.97'
 ]
 needs_pytest = {'pytest', 'test', 'ptr'}.intersection(sys.argv)
