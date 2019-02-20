@@ -1,5 +1,8 @@
 ## Next version (Unreleased)
 
+# v 0.0.6:
+   - REF: revert six version to >=1.9.0  
+
 # v 0.0.5:
 
    - FIX: Handler now inherits from HTTPSHandler instead of BaseHandler 
