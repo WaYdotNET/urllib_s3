@@ -1,5 +1,8 @@
 # urllib_s3
 
+[![Downloads](https://static.pepy.tech/badge/urllib_s3)](https://pepy.tech/project/urllib_s3)
+
+
 urllib_s3 is a urllib handler for s3 protocol
 
 
